@@ -1,6 +1,6 @@
 import svgCaptcha from 'svg-captcha';
 
-class PublickController {
+class PublicController {
     constructor(){}
 
     async getCaptcha(ctx){
@@ -19,4 +19,4 @@ class PublickController {
     }
 }
 
-export default new PublickController()
+export default new PublicController()

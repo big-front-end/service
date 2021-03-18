@@ -4,9 +4,7 @@ const redisConfig = {
     port: 15001,
     password: '123456',
     detect_buffers: true,
-}
+};
+const JWT_SECRET = 'qewrgasdfegeafesdfasdfefawef';
 
-export {
-    redisConfig,
-    DB_URL
-}
+export { redisConfig, DB_URL, JWT_SECRET };

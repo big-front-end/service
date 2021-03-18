@@ -1,6 +1,6 @@
 const path = require('path');
 
-exports.resolve = resolve = dir => path.join(__dirname, '..', dir);
+exports.resolve = resolve = (dir) => path.join(__dirname, '..', dir);
 
 exports.APP_PATH = exports.resolve('src');
-exports.DIST_PATH = exports.resolve('dist')
+exports.DIST_PATH = exports.resolve('dist');

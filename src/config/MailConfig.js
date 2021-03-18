@@ -18,7 +18,7 @@ async function main() {
         },
     });
 
-    let sendinfo = {
+    let send = {
         code: '1234',
         expire: '2020-10-1',
         email: 'changlin93@qq.com',
@@ -30,14 +30,14 @@ async function main() {
     // send mail with defined transport object
     let info = await transporter.sendMail({
         from: '"密码修改 👻" <changlin93@qq.com>', // sender address
-        to: sendinfo.email, // list of receivers
-        subject: sendinfo.user ? `你好开发者，${sendinfo.user}` : '', // Subject line
-        text: `您的邀请码是${sendinfo.code}，邀请码的过期时间：${sendinfo.expire}`, // plain text body
+        to: send.email, // list of receivers
+        subject: send.user ? `你好开发者，${send.user}` : '', // Subject line
+        text: `您的邀请码是${send.code}，邀请码的过期时间：${send.expire}`, // plain text body
         html: `
         <div style="border: 1px solid #dcdcdc;color: #676767;width: 600px; margin: 0 auto; padding-bottom: 50px;position: relative;">
             <div style="height: 60px; background: #393d49; line-height: 60px; color: #58a36f; font-size: 18px;padding-left: 10px;">Imooc社区——欢迎来到官方社区</div>
                 <div style="padding: 25px">
-                    <div>您好，${sendInfo.user}童鞋，重置链接有效时间30分钟，请在${sendInfo.expire}之前重置您的密码：</div>
+                    <div>您好，${send.user}童鞋，重置链接有效时间30分钟，请在${send.expire}之前重置您的密码：</div>
                     <a href="${url}" style="padding: 10px 20px; color: #fff; background: #009e94; display: inline-block;margin: 15px 0;">立即重置密码</a>
                 <div style="padding: 5px; background: #f2f2f2;">如果该邮件不是由你本人操作，请勿进行激活！否则你的邮箱将会被他人绑定。</div>
             </div>
