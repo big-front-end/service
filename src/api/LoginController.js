@@ -3,6 +3,7 @@ import jsonwebtoken from 'jsonwebtoken';
 import send from '../config/MailConfig';
 import { JWT_SECRET } from '../config/index';
 import { checkCode } from '../common/Utils';
+import User from '../model/User';
 
 class LoginController {
     constructor() {}
@@ -29,7 +30,7 @@ class LoginController {
 
     async login(ctx) {
         // 接受用户的数据
-        const { sid, code } = ctx.request.body;
+        const { sid, code, username, password } = ctx.request.body;
         // 验证图片验证码的时效性、正确性
         const isValid = checkCode(sid, code);
         if (!isValid) {
@@ -39,9 +40,10 @@ class LoginController {
                 msg: '图片验证码不正确，请检查！',
             };
         }
-        // 数据查询当前用户
-        const user = false;
-        if (!user) {
+        // 数据库查询当前用户
+        const user = await User.findOne({ username });
+        const checkUserPassword = user.password === password;
+        if (!checkUserPassword) {
             // 用户名、密码验证失败 提示
             ctx.body = {
                 code: 404,

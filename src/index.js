@@ -37,4 +37,4 @@ if (!isDevMode) app.use(compress());
 app.use(middleware).use(router());
 
 // 端口
-app.listen(3000);
+app.listen(5000, () => console.log('服务启动成功！'));
