@@ -19,5 +19,5 @@ services:
     ports: 
       - 15000:6379
     volumes:
-    - /home/redistest:/data
+      - /home/redistest:/data
     command: ["redis-test", "--requirepass", "123456"]
