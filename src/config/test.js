@@ -1,4 +1,3 @@
-import { get } from 'mongoose';
 import { setValue, getValue, getAsync, getHvalue, del } from './RedisConfig';
 
 setValue('imooc', 'imooc message from redis client');
