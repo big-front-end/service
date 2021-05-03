@@ -18,6 +18,7 @@
 	"dependencies": {
 		"@koa/cors": "^3.1.0",
 		"bluebird": "^3.7.2",
+		"dayjs": "^1.10.4",
 		"jsonwebtoken": "^8.5.1",
 		"koa": "^2.13.0",
 		"koa-body": "^4.2.0",
@@ -29,7 +30,6 @@
 		"koa-jwt": "^4.0.0",
 		"koa-router": "^9.4.0",
 		"koa-static": "^5.0.0",
-		"moment": "^2.28.0",
 		"mongoose": "^5.10.9",
 		"nodemailer": "^6.4.11",
 		"npm-check-updates": "^8.1.0",

@@ -1,35 +1,35 @@
-import nodemailer from "nodemailer";
+import nodemailer from 'nodemailer';
 // const nodemailer = require('nodemailer')
 
 // async..await is not allowed in global scope, must use a wrapper
-async function main() {
+async function send(send) {
     // Generate test SMTP service account from ethereal.email
     // Only needed if you don't have a real mail account for testing
     // let testAccount = await nodemailer.createTestAccount();
 
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
-        host: "smtp.qq.com",
+        host: 'smtp.qq.com',
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-            user: 'changlin93@qq.com', // generated ethereal user
-            pass: 'zjxff937', // generated ethereal password
+            user: '767425412@qq.com', // generated ethereal user
+            pass: 'gkhxejfdghjfbehd', // generated ethereal password
         },
     });
 
-    let send = {
-        code: '1234',
-        expire: '2020-10-1',
-        email: 'changlin93@qq.com',
-        user: 'changlin'
-    }
+    // let send = {
+    //     code: '1234',
+    //     expire: '2020-10-1',
+    //     email: '767425412@qq.com',
+    //     user: 'changlin',
+    // };
 
-    let url = 'changlin93.com';
+    let url = 'http://changlin93.com';
 
     // send mail with defined transport object
     let info = await transporter.sendMail({
-        from: '"密码修改 👻" <changlin93@qq.com>', // sender address
+        from: '"密码修改 👻" <767425412@qq.com>', // sender address
         to: send.email, // list of receivers
         subject: send.user ? `你好开发者，${send.user}` : '', // Subject line
         text: `您的邀请码是${send.code}，邀请码的过期时间：${send.expire}`, // plain text body
@@ -45,12 +45,13 @@ async function main() {
         </div>`, // html body
     });
 
-    console.log("Message sent: %s", info.messageId);
+    return 'Message sent: %s', info.messageId;
     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 
     // Preview only available when sending through an Ethereal account
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    // console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
 
-main().catch(console.error);
+// send().catch(console.error);
+export default send;
